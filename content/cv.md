@@ -5,7 +5,7 @@
 
 
 **UC Berkeley School of Law**, LL.M., *2024 - 2025*
-
+- Certificate: Law & Technology
 
 **Renmin University of China Law School**, J.M., *2021 - 2024*
 - Advisor: Professor Xiaodong Ding
