@@ -15,6 +15,10 @@ avatar = "/bio.jpg"
 
 email = "hh874@cornell.edu"
 location = "Ithaca, NY"
+location_url = "https://www.google.com/maps/place/Cornell+Law+School/@42.443864,-76.4884071,901m/data=!3m3!1e3!4b1!5s0x89d0818ea34dbe71:0x190ef4b9c68465a!4m6!3m5!1s0x89d0818ea283619b:0x443477d31cf3a273!8m2!3d42.443864!4d-76.4858268!16zL20vMDF3cndm?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D"
+location_details = [
+  "Myron Taylor Hall, Ithaca, NY 14853"
+  ]
 google_scholar = "https://scholar.google.com/citations?user=G3o0QYMAAAAJ&hl=en"
 ssrn = "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=4928387"
 linkedin = "https://www.linkedin.com/in/hao-huang-law/?skipRedirect=true"
