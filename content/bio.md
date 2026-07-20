@@ -1,5 +1,5 @@
-I am a PhD student at the School of Science, University of Example, advised by [Prof. Advisor One](https://example.com) and [Dr. Advisor Two](https://example.com).
+I am a JSD student at Cornell University Law School.
 
-Prior to this, I obtained a BSc degree with First Class Honours in Natural Science from the University of Example.
+Before Cornell, I obtained a LLM degree with Dean's List from UC Berkeley School of Law and JM (JD equivalent) degree from Renmin University of China Law School. Before starting law school, I studied English Literature at Harbin Institution of Technology. 
 
-My current research focuses on investigating the mathematical principles of natural philosophy.
+My current research focuses on how regulators' technical capacity building shapes technology regulation. 
