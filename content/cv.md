@@ -1,26 +1,11 @@
 ## Education
 
-**The University of Example**, PhD in Natural Science, *2025 - Present*
-- Research focus: Mathematical Principles of Natural Philosophy
-- Supervisor: Prof. Advisor One and Dr. Advisor Two
+**Cornell University Law School**, J.S.D. student, *2026 - Present*
+- Advisor: Professor Frank Pasquale
 
-**The University of Example**, BSc in Natural Science, *2021 - 2025*
-- Graduated with First Class Honours
+**UC Berkeley School of Law**, LL.M., *2024 - 2025*
 
-## Experience
+**Renmin University of China Law School**, J.M., *2021 - 2024*
+- Advisor: Professor Xiaodong Ding
 
-**Example Role**
-Company/Institution
-*2023 - 2024*
-- Description of key responsibilities and achievements.
-- Utilized skills to solve problems.
-
-## Skills
-
-- **Programming:** Python, C++, MATLAB, LaTeX
-- **Data Analysis:** Pandas, NumPy, SciPy
-- **Languages:** English (Native), French (Fluent)
-
-## Awards & Honors
-
-- **First Prize in Example Competition** - Committee of Example (*2024*)
+**Harbin Institute of Technolohy**, B.A., *2017 - 2021*
