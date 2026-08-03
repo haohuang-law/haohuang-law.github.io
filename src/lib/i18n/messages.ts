@@ -94,7 +94,7 @@ const en: LocaleMessages = {
   },
   footer: {
     lastUpdated: 'Last updated',
-    builtWithPrism: 'Built with PRISM',
+    builtWithPrism: '',
   },
 };
 
