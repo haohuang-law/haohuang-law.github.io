@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap");
 @import "tailwindcss";
 
 @font-face {
@@ -134,6 +135,15 @@
   --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
   --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+/* Deliberately separate Chinese name typography from the English Georgia heading. */
+.chinese-name {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
 }
 
 /* Use Source Han Serif for Chinese headings/title text via .font-serif */
