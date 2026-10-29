@@ -15,6 +15,7 @@ Activity: Berkeley Technology Law Journal, Articles Editor, 2024–2025
 
 **Renmin University of China**, Beijing, China  
 Juris Master (J.M.) (J.D. equivalent), GPA: 3.9/4, June 2024  
+Advisor: Professor Xiaodong Ding\
 Honors: Excellent Graduate of Law School (Top 15% of the class); Academic Excellence Award  
 Thesis: *Information Fiduciary Theory, Chinese Style*  
 Certificate: Specialization in Law and Digital Economy
