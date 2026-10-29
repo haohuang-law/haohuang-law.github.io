@@ -249,7 +249,7 @@ export default function Profile({
                     {author.name}
                 </h1>
 
-                <p lang="zh-CN" className="text-2xl font-serif font-semibold text-primary mb-3">
+                <p lang="zh-CN" className="chinese-name text-primary mb-3">
                     黄昊
                 </p>
 
