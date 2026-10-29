@@ -1,5 +1,14 @@
-@import url("https://cdn.jsdelivr.net/gh/nulijiazaizhong/LXGW-WenKai-Web@v0.0.1/dist/lxgwwenkai-medium.css");
 @import "tailwindcss";
+
+/* A local Kai-style subset containing only the two characters in the name. */
+@font-face {
+  font-family: "Hao Huang Kai";
+  src: url("/fonts/hao-huang-kai.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+660A, U+9EC4;
+}
 
 @font-face {
   font-family: "Georgia CDN";
@@ -139,7 +148,7 @@
 
 /* Display the Chinese name in a traditional Kai-style font, independent of the English heading. */
 .chinese-name {
-  font-family: "Kaiti SC", "STKaiti", "KaiTi", "楷体", "DFKai-SB", "LXGW WenKai", serif;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "楷体", "DFKai-SB", "Hao Huang Kai", serif;
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
