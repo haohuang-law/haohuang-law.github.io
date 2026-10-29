@@ -13,7 +13,7 @@ interface TextPageProps {
 
 export default function TextPage({ config, content, embedded = false }: TextPageProps) {
     const isCv = config.source === 'cv.md';
-    const pdfUrl = '/CV_Hao_Huang.pdf';
+    const pdfUrl = '/CV_Hao_Huang.pdf?v=28df1d654839';
 
     return (
         <motion.div
