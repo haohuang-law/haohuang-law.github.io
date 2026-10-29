@@ -6,6 +6,11 @@ on:
       - main
   workflow_dispatch:
 
+# Prevent overlapping deployments when several homepage changes are pushed rapidly.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
 permissions:
   contents: read
   pages: write
