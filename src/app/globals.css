@@ -28,13 +28,13 @@
   --background: #fefffe;
   --foreground: #0f172a;
   
-  /* Brand colors - Deep Navy & Gold */
+  /* Brand colors - Deep Navy & Berkeley Blue */
   --primary: #1e293b;
   --primary-light: #334155;
   --primary-dark: #0f172a;
-  --accent: #d4a562;
-  --accent-light: #e4b976;
-  --accent-dark: #b8914d;
+  --accent: #002676;
+  --accent-light: #004aae;
+  --accent-dark: #010133;
   
   /* Neutral colors */
   --neutral-50: #f8fafc;
@@ -170,9 +170,9 @@ html[data-locale^="zh"] {
   --primary: #f8fafc;
   --primary-light: #e2e8f0;
   --primary-dark: #cbd5e1;
-  --accent: #e4b976;
-  --accent-light: #f0c674;
-  --accent-dark: #d4a562;
+  --accent: #9fd1ff;
+  --accent-light: #cbe6ff;
+  --accent-dark: #73b8f5;
   
   /* Dark mode glass effect */
   --glass-bg: rgba(15, 23, 42, 0.8);
