@@ -249,6 +249,10 @@ export default function Profile({
                     {author.name}
                 </h1>
 
+                <p lang="zh-CN" className="text-2xl font-serif font-semibold text-primary mb-3">
+                    黄昊
+                </p>
+
                 <p className="text-lg text-accent font-medium mb-1">
                     {author.title}
                 </p>
