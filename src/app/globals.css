@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/nulijiazaizhong/LXGW-WenKai-Web@v0.0.1/dist/lxgwwenkai-medium.css");
 @import "tailwindcss";
 
 @font-face {
@@ -137,9 +137,9 @@
   --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 
-/* Deliberately separate Chinese name typography from the English Georgia heading. */
+/* Display the Chinese name in a traditional Kai-style font, independent of the English heading. */
 .chinese-name {
-  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
+  font-family: "LXGW WenKai", "Kaiti SC", "STKaiti", "KaiTi", "DFKai-SB", serif;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
