@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { TextPageConfig } from '@/types/page';
 
@@ -11,6 +12,19 @@ interface TextPageProps {
 }
 
 export default function TextPage({ config, content, embedded = false }: TextPageProps) {
+    const isCv = config.source === 'cv.md';
+    const pdfUrl = '/CV_Hao%20Huang.pdf';
+    const [hasCvPdf, setHasCvPdf] = useState(false);
+
+    useEffect(() => {
+        if (!isCv) return;
+        const controller = new AbortController();
+        fetch(pdfUrl, { method: 'HEAD', signal: controller.signal })
+            .then(response => setHasCvPdf(response.ok && (response.headers.get('content-type') || '').includes('pdf')))
+            .catch(() => setHasCvPdf(false));
+        return () => controller.abort();
+    }, [isCv]);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +38,16 @@ export default function TextPage({ config, content, embedded = false }: TextPage
                     {config.description}
                 </p>
             )}
-            <div className="text-neutral-700 dark:text-neutral-600 leading-relaxed">
+            {isCv && hasCvPdf && (
+                <div className="space-y-5">
+                    <div className="flex flex-wrap gap-4">
+                        <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-lg bg-accent px-5 py-2.5 font-medium text-white hover:bg-accent-dark transition-colors">Open PDF</a>
+                        <a href={pdfUrl} download="CV_Hao_Huang.pdf" className="inline-flex items-center rounded-lg border border-accent px-5 py-2.5 font-medium text-accent hover:bg-accent/10 transition-colors">Download CV</a>
+                    </div>
+                    <iframe src={pdfUrl} title="Hao Huang Curriculum Vitae (PDF)" className="w-full h-[75vh] min-h-[600px] rounded-lg border border-neutral-200 dark:border-neutral-700" />
+                </div>
+            )}
+            {(!isCv || !hasCvPdf) && <div className="text-neutral-700 dark:text-neutral-600 leading-relaxed">
                 <ReactMarkdown
                     components={{
                         h1: ({ children }) => <h1 className="text-3xl font-serif font-bold text-primary mt-8 mb-4">{children}</h1>,
@@ -53,7 +76,7 @@ export default function TextPage({ config, content, embedded = false }: TextPage
                 >
                     {content}
                 </ReactMarkdown>
-            </div>
+            </div>}
         </motion.div>
     );
 }
