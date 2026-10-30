@@ -29,7 +29,8 @@ export default function TextPage({ config, content, embedded = false }: TextPage
                 </p>
             )}
             {isCv && (
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+                <div className="space-y-6">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
                     <a
                         href={pdfUrl}
                         target="_blank"
@@ -48,6 +49,12 @@ export default function TextPage({ config, content, embedded = false }: TextPage
                         <ArrowDownTrayIcon aria-hidden="true" className="h-5 w-5" />
                         Download CV
                     </a>
+                    </div>
+                    <iframe
+                        src={pdfUrl}
+                        title="Hao Huang Curriculum Vitae (PDF)"
+                        className="w-full h-[75vh] min-h-[360px] sm:min-h-[600px] rounded-lg border border-neutral-200 dark:border-neutral-700"
+                    />
                 </div>
             )}
             {!isCv && <div className="text-neutral-700 dark:text-neutral-600 leading-relaxed">
