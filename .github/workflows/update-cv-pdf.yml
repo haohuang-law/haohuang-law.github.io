@@ -1,12 +1,12 @@
-name: Add CV Work in Progress and Publish
+name: Build LaTeX CV and Publish
 
 on:
   push:
     branches:
       - main
     paths:
+      - cv/Resume.tex
       - .github/workflows/update-cv-pdf.yml
-      - scripts/update_cv_pdf.py
   workflow_dispatch:
 
 permissions:
@@ -19,45 +19,60 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update-build:
+  latex-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout current website
+      - name: Checkout website
         uses: actions/checkout@v4
         with:
           persist-credentials: true
 
-      - name: Install Python
-        uses: actions/setup-python@v5
+      - name: Compile original LaTeX template
+        uses: xu-cheng/latex-action@v4
         with:
-          python-version: '3.12'
+          root_file: Resume.tex
+          working_directory: cv
+          compiler: latexmk
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
-      - name: Install PDF editing library
-        run: python -m pip install 'pymupdf>=1.24,<2'
-
-      - name: Insert new work into existing PDF
-        run: python scripts/update_cv_pdf.py
-
-      - name: Commit updated CV PDF
+      - name: Validate two-page CV and newest publication entry
         run: |
+          python -m pip install --quiet pymupdf
+          python - <<'PY'
+          import pymupdf
+          pdf = pymupdf.open("cv/Resume.pdf")
+          assert len(pdf) == 2, f"Expected two-page CV, got {len(pdf)}"
+          text = "\n".join(page.get_text() for page in pdf)
+          assert "Stigmatizing Yourself" in text
+          assert "Yitong Hao" in text
+          for marker in ["Cornell University", "PROFESSIONAL EXPERIENCE", "ADDITIONAL INFORMATION"]:
+              assert marker in text, f"Missing original CV section: {marker}"
+          font_names = {font[3] for page in pdf for font in page.get_fonts()}
+          assert not any("Liberation" in name for name in font_names)
+          print("Two-page original LaTeX CV verified:", sorted(font_names))
+          PY
+
+      - name: Update publicly served CV PDF
+        run: |
+          cp cv/Resume.pdf public/CV_Hao_Huang.pdf
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/CV_Hao_Huang.pdf
           if ! git diff --cached --quiet; then
-            git commit -m "Update CV PDF with Stigmatizing Yourself"
+            git commit -m "Recompile website CV using original LaTeX template"
             git push origin HEAD:main
           fi
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - name: Install site dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build static site
+      - name: Build website
         run: npm run build
 
       - name: Upload GitHub Pages artifact
@@ -66,12 +81,12 @@ jobs:
           path: ./out
 
   deploy:
-    needs: update-build
+    needs: latex-build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy updated website
+      - name: Deploy updated site
         id: deployment
         uses: actions/deploy-pages@v4
