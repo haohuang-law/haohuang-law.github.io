@@ -50,6 +50,8 @@ Bachelor of Arts (B.A.), June 2021
 *AI Federalism 2.0: The Rise of Municipal AI Regulation in China* (with Bohui Su)  
 - Workshopped at the 10th Stanford Law and Society Conference for Junior Researchers, Stanford Law School, Oct. 2026.
 
+*Stigmatizing Yourself: Emotional Labor and Privacy Disclosure in China’s Higher Education Financial Assistance* (with Yitong Hao)
+
 ## Teaching & Research Experiences
 
 **Renmin Law and Technology Institute**  
