@@ -67,7 +67,7 @@ def main():
         if link.get("kind") == fitz.LINK_URI:
             second.insert_link({"kind": fitz.LINK_URI, "from": link["from"], "uri": link["uri"]})
 
-    if TITLE not in re.sub(r"\\s+", " ", result[0].get_text()):
+    if TITLE not in re.sub(r"\s+", " ", result[0].get_text()):
         raise RuntimeError("New title was not preserved as searchable PDF text")
     staged = CV.with_suffix(".new.pdf")
     result.save(str(staged), garbage=4, deflate=True)
