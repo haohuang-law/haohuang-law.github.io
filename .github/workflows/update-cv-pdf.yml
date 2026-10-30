@@ -15,7 +15,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
+  group: cv-latex-source-build
   cancel-in-progress: false
 
 jobs:
@@ -82,6 +82,9 @@ jobs:
 
   deploy:
     needs: latex-build
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     environment:
       name: github-pages
