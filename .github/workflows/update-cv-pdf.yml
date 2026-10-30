@@ -1,0 +1,76 @@
+name: Add CV Work in Progress and Publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update-cv-pdf.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  update-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current website
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PDF editing library
+        run: python -m pip install 'pymupdf>=1.24,<2'
+
+      - name: Insert new work into existing PDF
+        run: python scripts/update_cv_pdf.py
+
+      - name: Commit updated CV PDF
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/CV_Hao_Huang.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Update CV PDF with Stigmatizing Yourself"
+            git push origin HEAD:main
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install site dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: update-build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy updated website
+        id: deployment
+        uses: actions/deploy-pages@v4
