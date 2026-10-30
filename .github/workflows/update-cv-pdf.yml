@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - .github/workflows/update-cv-pdf.yml
+      - scripts/update_cv_pdf.py
   workflow_dispatch:
 
 permissions:
