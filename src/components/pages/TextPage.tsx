@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDownTrayIcon, ArrowTopRightOnSquareIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
+import { ArrowDownTrayIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import ReactMarkdown from 'react-markdown';
 import { TextPageConfig } from '@/types/page';
 
@@ -29,37 +29,25 @@ export default function TextPage({ config, content, embedded = false }: TextPage
                 </p>
             )}
             {isCv && (
-                <div className="space-y-5">
-                    <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-5 sm:p-6">
-                        <div className="flex items-center gap-3">
-                            <DocumentTextIcon aria-hidden="true" className="h-9 w-9 shrink-0 text-primary" />
-                            <div>
-                                <h2 className="text-lg font-semibold text-primary">Hao Huang · Curriculum Vitae</h2>
-                                <p className="text-sm text-neutral-600">PDF document</p>
-                            </div>
-                        </div>
-                        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-                            <a
-                                href={pdfUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-background shadow-sm transition-colors hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-                            >
-                                View CV (PDF)
-                                <ArrowTopRightOnSquareIcon aria-hidden="true" className="h-4 w-4" />
-                                <span className="sr-only"> (opens in a new tab)</span>
-                            </a>
-                            <a
-                                href={pdfUrl}
-                                download="CV_Hao_Huang.pdf"
-                                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-2 py-2 font-medium text-primary underline decoration-1 underline-offset-4 transition-colors hover:bg-accent/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-                            >
-                                <ArrowDownTrayIcon aria-hidden="true" className="h-5 w-5" />
-                                Download CV
-                            </a>
-                        </div>
-                    </div>
-                    <iframe src={pdfUrl} title="Hao Huang Curriculum Vitae (PDF)" className="w-full h-[75vh] min-h-[360px] sm:min-h-[600px] rounded-lg border border-neutral-200" />
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+                    <a
+                        href={pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-background shadow-sm transition-colors hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    >
+                        View CV
+                        <ArrowTopRightOnSquareIcon aria-hidden="true" className="h-4 w-4" />
+                        <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                    <a
+                        href={pdfUrl}
+                        download="CV_Hao_Huang.pdf"
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-neutral-300 px-5 py-3 font-semibold text-primary transition-colors hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    >
+                        <ArrowDownTrayIcon aria-hidden="true" className="h-5 w-5" />
+                        Download CV
+                    </a>
                 </div>
             )}
             {!isCv && <div className="text-neutral-700 dark:text-neutral-600 leading-relaxed">
