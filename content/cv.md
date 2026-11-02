@@ -27,7 +27,7 @@ Bachelor of Arts (B.A.), June 2021
 
 ### Journal Articles
 
-*Social Media Reckonings and the Law of Conservation of Legal Effects* (with Frank Pasquale), 15 *Journal of European Consumer and Market Law* 235 (2026 forthcoming).
+*Social Media Reckonings and the Law of Conservation of Legal Effects* (with Frank Pasquale), 15 *Journal of European Consumer and Market Law* 235 (2026).
 
 *Detector and Interpreter: Two Roles of Individuals in the Enforcement of Chinese Data Privacy Law*, *International Data Privacy Law*, forthcoming.
 
